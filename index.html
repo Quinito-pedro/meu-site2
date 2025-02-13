@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Quinito Pedro Luís</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        /* Header e Hero Section */
+        header {
+            background: url('imagemfundo.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os itens horizontalmente */
+            text-align: center; /* Centraliza o texto */
+        }
+        
+        .hero-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os itens horizontalmente */
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem; /* Reduz o espaçamento inferior */
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 1rem; /* Reduz o espaçamento inferior */
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            align-self: center; /* Centraliza a imagem */
+            margin-top: 1rem; /* Adiciona um pequeno espaçamento acima da imagem */
+        }
+        
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .hero img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem auto; /* Reduz o espaçamento superior e inferior */
+            width: 100%;
+        }
+        
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 1.2rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        }
+        
+        .social-icons img {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .social-icons a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: 0;
+            left: 0;
+            animation: pulse 2s infinite;
+        }
+        
+                /* Main Content */
+                main {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 3rem 2rem;
+                }
+        
+                section {
+                    margin-bottom: 3rem;
+                }
+        
+                h2 {
+                    font-size: 2rem;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    position: relative;
+                    padding-bottom: 1rem;
+                }
+        
+                h2::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 3px;
+                    background: var(--primary);
+                }
+        
+                .cards {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 1.5rem;
+                    padding: 1rem;
+                }
+        
+                .card {
+                    background: white;
+                    padding: 1.5rem;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: var(--transition);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                }
+        
+                .card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background: var(--primary);
+                    transform: scaleX(0);
+                    transition: var(--transition);
+                }
+        
+                .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                }
+        
+                .card:hover::before {
+                    transform: scaleX(1);
+                }
+        
+                .card h3 {
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                }
+        
+                .card p {
+                    font-size: 0.95rem;
+                    margin-bottom: 1.5rem;
+                }
+        
+                .card .read-more {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    background: var(--primary);
+                    color: white;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    transition: var(--transition);
+                }
+        
+                .card .read-more:hover {
+                    background: var(--primary-dark);
+                }
+        
+                /* Footer */
+                footer {
+                    background: var(--text-dark);
+                    color: white;
+                    text-align: center;
+                    padding: 1.5rem;
+                    margin-top: 3rem;
+                }
+        
+                /* Animations */
+                @keyframes fadeInDown {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+        
+                /* Responsive Design */
+                @media (max-width: 768px) {
+                    .hero h1 {
+                        font-size: 2rem;
+                    }
+        
+                    .hero p {
+                        font-size: 1rem;
+                    }
+        
+                    .cards {
+                        grid-template-columns: 1fr;
+                    }
+                }
+        
+                .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+            gap: 20px; /* Espaço entre os cards */
+            padding: 20px;
+        }
+        
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+        }
+        
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .card a:hover {
+            background-color: #0056b3;
+        }
+            </style>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <img src="perfil.png" alt="Foto de perfil de Quinito Pedro Luís">
+            <h1>QUINITO PEDRO LUIS</h1>
+            <p>Gestor de Dados | Técnico de Informática | Conselheiro de Saúde</p>
+            <p>Profissinal com mais de 4 anos de experiencia em tecnologia,apaixonado por dados, inovação e desenvolvimento de soluções eficientes
+            <div class="social-icons">
+                <a href="https://github.com/Quinito-pedro" target="_blank" id="github">
+                    <img src="/github.png" alt="GitHub">
+                </a>
+                <a href="https://youtube.com/@quinitopedroluis8800?si=kA9tGWMT5oGrv78C" target="_blank" id="yutube">
+                    <img src="yout.jpeg" alt="Youtube">
+                </a>
+                <a href="https://www.linkedin.com/in/quinito-pedro-luís" target="_blank" id="linkedin">
+                    <img src="linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="mailto:quinitopedrol@gmail.com" id="email">
+                    <img src="images (1).jpeg" alt="Email">
+                </a>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="cv-section" style="background-color: #f7fafc; padding: 40px 20px; text-align: center;">
+            <h2 style="font-size: 2em; color: #2d3748; margin-bottom: 20px;">Meu Currículo</h2>
+            <p style="font-size: 1.1em; color: #4a5568; margin-bottom: 30px;">
+                Confira meu currículo para mais detalhes sobre minha experiência profissional, formação acadêmica e habilidades.
+            </p>
+            <a href="cv.html" style="background-color: #4299e1; color: #ffffff; padding: 15px 30px; font-size: 1em; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">
+                Confira o CV
+            </a>
+            
+        </section>
+
+        <section class="expertise">
+            <h2>Áreas de Expertise</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Gestão de Dados e Monitoramento</h3>
+                    <p>Experiência com OpenMRS, DHIS2 e Power BI para análise e relatórios estatísticos.</p>
+
+                </div>
+                <div class="card">
+                    <h3>Informática e Tecnologia</h3>
+                    <p>Manutenção de computadores, configuração de redes e suporte técnico.</p>
+
+                </div>
+                <div class="card">
+                    <h3>Saúde Comunitária</h3>
+                    <p>Experiência com aconselhamento, testagem e suporte a pacientes TARV.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+</section>
+<section class="projetos">
+<h2>Projetos em Destaque</h2>
+<div class="cards">
+    <div class="card">
+        <h3>Sistema de Monitoramento</h3>
+        <p>Desenvolvimento de plataforma integrada para monitoramento de indicadores em tempo real, com dashboards interativos e relatórios automatizados.</p>
+       
+    </div>
+    <div class="card">
+        <h3>Plataforma de Avaliação</h3>
+
+    </div>
+</div>
+
+         <!-- Frame com 6 compartimentos para Certificados e Diplomas -->
+         <h2>Certificações e Diplomas</h2>
+         <div class="certificates-grid">
+
+            <div class="card">
+                <h3>Diploma em Informática</h3>
+                <p>Certificado de conclusão do curso de Informatica.</p>
+                <a href="https://drive.google.com/file/d/1tOQdDoI4LcvhojBZJ0DVYiWb1RoaLOQm/view?usp=drive_link" class="read-more" target="_blank">Acessar Diploma</a>
+            </div>
+        
+            <div class="card">
+                <h3>Certificado de Trabalho (Conselheiro de saude)</h3>
+                <p>Certificado de experiência como Conselheiro Distrital.</p>
+                <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view?usp=drive_link" class="read-more" target="_blank">Acessar Certificado</a>
+            </div>
+        
+            <div class="card">
+                <h3>Certificado de Trabalho (Activista Social)</h3>
+                <p>Certificado de experiência como Activista social TETE.</p>
+                <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view?usp=drive_link" class="read-more" target="_blank">Acessar Certificado</a>
+            </div>
+        
+            <div class="card">
+                <h3>Carta de referencia profissional (Estagio INSS)</h3>
+                <p>Carta de ferencia profissional na area de TI no sector de Assistente Tecnico (INSSy).</p>
+                <a href="https://drive.google.com/file/d/1gFy7m2TVEP4hzAl24Civ3yivDZmz-VuQ/view?usp=sharing" class="read-more" target="_blank">Acessar Certificado</a>
+            </div>
+         </div>
+                </section>
+            </main>    
+    <footer style="background-color: #1a365d; color: #ffffff; padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <p>&copy; <span id="current-year">2025</span> Quinito Pedro Luís. Todos os direitos reservados.</p>
+        <div style="margin-top: 10px; font-size: 0.9em;"> 
+        <p>📧 E-mail: <a href="mailto:quinitopedrol@gmail.com" style="color: #63b3ed;">quinitopedrol@gmail.com</a></p>
+        <p>📞 Telefone: <a href="tel:+258844909293" style="color: #63b3ed;">+258 844 909 293</a> | <a href="tel:+258867455868" style="color: #63b3ed;">+258 867 455 868</a></p>
+        <p>🔗 LinkedIn: <a href="https://linkedin.com/in/quinito-pedro-luís" target="_blank" style="color: #63b3ed;">linkedin.com/in/quinito-pedro-luís</a></p>
+        <p> ▶ Youtube: <a href="https://youtube.com/@quinitopedroluis8800?si=kA9tGWMT5oGrv78C" target="_blank" style="color: #63b3ed;">youtube.com/@quinitopedroluis8800?si</a></p>        
+     </div>
+    </footer>
+
+    <script>
+        // Animação suave ao scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Atualiza o ano automaticamente
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        // Animação dos cards ao aparecerem na tela
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
